@@ -17,4 +17,4 @@
 
 ####Итоговый проект
 
-#### [Ссылка на  проект на github](https://alisagafarova.github.io/russian-travel-bootcamp/index.html) 
+#### [Ссылка на  проект на github](https://alisagafarova.github.io/mesto-project-bootcamp//index.html) 

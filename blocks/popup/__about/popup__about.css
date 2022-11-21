@@ -1,0 +1,9 @@
+.popup__about {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    position: absolute;
+    bottom: -20px;
+    color: #FFFFFF;
+    margin: 0 0 0;
+}

@@ -2,21 +2,19 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./pages/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
 </head>
 <body>
   <div class="main">
     <div class="page">
-
       <header class="header">
-        <img class="header__logo" src="images/header_logo.svg" alt="Место">
+        <img class="header__logo" src="<%=require('./images/header_logo.svg')%>"  alt="Место">
       </header>
 
       <section class="profile">
         <div class="profile__block">
-          <img class="profile__avatar" src="images/profile_avatar.png" alt="Кусто">
+          <img class="profile__avatar" src="<%=require('./images/profile_avatar.png')%>" alt="Кусто">
           <div class="profile__info">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
             <button type="button" class="profile__edit-button"></button>
@@ -51,8 +49,10 @@
       <button type="button" class="popup__button-close" id="popup__button-close-edit"></button>
       <h2 class="popup__header">Редактировать профиль</h2>
       <form class="popup__form" name="edit_form">
-        <input type="text" name="firstname" class="popup__text" placeholder= "Имя">
-        <input type="text" name="subtitle" class="popup__text" placeholder= "О себе">
+        <input type="text" name="firstname" class="popup__text" placeholder= "Имя" minlength="2" maxlength="40" required>
+        <span class="popup__text-error" id="firstname-error"></span> 
+        <input type="text" name="subtitle" class="popup__text" placeholder= "О себе" minlength="2" maxlength="200" required>
+        <span class="popup__text-error" id="subtitle-error"></span> 
         <input type="submit" class="popup__button" value="Сохранить">
       </form>
     </div>
@@ -63,8 +63,10 @@
       <button type="button" class="popup__button-close" id="popup__button-close-add"></button>
       <h2 class="popup__header">Новое место</h2>
       <form class="popup__form" name="add_form">
-        <input type="text" name="firstname" class="popup__text" placeholder="Название">
-        <input type="text" name="subtitle" class="popup__text" placeholder="Ссылка на страницу">
+        <input type="text" name="title" id="text" class="popup__text" placeholder="Название"  minlength="2" maxlength="30" required>
+        <span class="popup__text-error" id="title-error"></span> 
+        <input type="url" name="link" id="link"class="popup__text" placeholder="Ссылка на страницу" required>
+        <span class="popup__text-error" id="link-error"></span> 
         <input type="submit" class="popup__button" value="Сохранить">
       </form>
     </div>
@@ -77,8 +79,6 @@
       <p class="popup__about">Текст</p>
     </div>
   </div>
-
 </div>
-  <script src="./js/script.js" ></script>
 </body>
 </html>

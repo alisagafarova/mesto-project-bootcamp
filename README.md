@@ -11,6 +11,7 @@
 * JavaScript
 * Grid layout
 * Flexbox
+* Webpack
 
 ### Функциональность
 
@@ -22,12 +23,16 @@
 * Добавлен функционал удаления карточки
 * Просмотр фотографий нажатием на картинку и закрытие кликом на крестик
 * Плавное открытие и закрытие попапов
+* Валидация форм
+* Закрытие попапа кликом на оверлей и Esc
+* Произведена сборка проекта Webpack
 
 
 ### Figma
 
-[Ссылка на макет в Figma](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
+[Ссылка на макет в Figma](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0%3A1)
 
 ### Итоговый проект
 
-#### [Ссылка на  проект на github](https://alisagafarova.github.io/mesto-project-bootcamp//index.html) 
+На данном этапе не требуется обновлять проект на GH-pages
+

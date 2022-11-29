@@ -19,5 +19,7 @@ function closePopup(popUp) {
   }
 
 export {
-    openPopup, closePopup,
+    openPopup,
+    closePopup,
+    handleEscPopup
   }

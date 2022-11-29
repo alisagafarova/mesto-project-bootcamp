@@ -5,11 +5,14 @@ import {
 } from './components/validate.js';
 
 import { 
-  addCard, createCard
+  addCard,
+  createCard
 } from './components/card.js';
 
 import { 
-  openPopup, closePopup,
+  openPopup,
+  closePopup, 
+  handleEscPopup
 } from './components/modal.js';
 
 const editButton = document.querySelector('.profile__edit-button');
@@ -17,16 +20,14 @@ const addButton = document.querySelector('.profile__add-button');
 const profileUser = document.querySelector('.profile__title');
 const profileAbout = document.querySelector('.profile__subtitle');
 const popUpEdit = document.querySelector('#edit-profile');
-const popNewLocation = document.querySelector('#new-location');
+export const popNewLocation = document.querySelector('#new-location');
 const popUpFormEdit = document.querySelector('[name="edit_form"]');
-const popUpFormAdd = document.querySelector('[name="add_form"]');
- const popUpImage = document.querySelector('#popup__image');
-const elements = document.querySelector('.elements__list');
-const element = document.querySelector('#element-template').content;
- const likeButton = element.querySelector('.element__button-like');
- const deleteButton = element.querySelector('.element__delete');
- const popupImageZoom = document.querySelector('.popup__image');
- const popupAbout = document.querySelector('.popup__about');
+export const popUpFormAdd = document.querySelector('[name="add_form"]');
+export const popUpImage = document.querySelector('#popup__image');
+export const elements = document.querySelector('.elements__list');
+export const element = document.querySelector('#element-template').content;
+ export const popupImageZoom = document.querySelector('.popup__image');
+ export const popupAbout = document.querySelector('.popup__about');
  const closeButtons = document.querySelectorAll('.popup__button-close');
 const user = popUpFormEdit.querySelector('[name="firstname"]');
 const about = popUpFormEdit.querySelector('[name="subtitle"]');
@@ -89,7 +90,7 @@ closePopupOverlay.forEach((overlay) => {
 
 
 initialCards.forEach(function (item) {
-    const card = createCard(element, item, popUpImage, popupImageZoom, popupAbout, likeButton, deleteButton);
+    const card = createCard(item);
     elements.append(card);
 });
 

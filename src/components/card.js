@@ -1,13 +1,23 @@
 import { 
-    openPopup, closePopup,
+    openPopup,
+    closePopup,
   } from './modal.js';
 
+  import { 
+    element,
+    elements,
+    popUpFormAdd,
+    popUpImage,
+    popupAbout,
+    popupImageZoom,
+    popNewLocation
+  } from '../index.js';
 
 // Функция создания карточки
-function createCard(element, item, image, image_zoom, about, likeButton, deleteButton) {
+function createCard(item) {
     const newElement = element.querySelector('.element').cloneNode(true);
-    // const likeButton = newElement.querySelector('.element__button-like');
-    // const deleteButton = newElement.querySelector('.element__delete');
+    const likeButton = newElement.querySelector('.element__button-like');
+    const deleteButton = newElement.querySelector('.element__delete');
     const imageButton = newElement.querySelector('.element__image');
     newElement.querySelector('.element__image').src = item.link;
     newElement.querySelector('.element__image').alt = item.name;
@@ -23,10 +33,10 @@ function createCard(element, item, image, image_zoom, about, likeButton, deleteB
       });
   
     imageButton.addEventListener('click', function (evt) {
-        image.classList.add('popup_is-opened');
+        popUpImage.classList.add('popup_is-opened');
       const imageElement = evt.target.closest('.element__image');
-      image_zoom.setAttribute('src', imageElement.src);
-      about.textContent =newElement.querySelector('.element__title').textContent;
+      popupImageZoom.setAttribute('src', imageElement.src);
+      popupAbout.textContent =newElement.querySelector('.element__title').textContent;
       });
   
     return newElement;
@@ -45,5 +55,7 @@ function createCard(element, item, image, image_zoom, about, likeButton, deleteB
   };
 
   export {
-    addCard, createCard, openPopup
+    addCard,
+    createCard,
+    openPopup
   }

@@ -64,5 +64,5 @@ function enableValidation(validationSettings) {
 };
 
 export {
-    enableValidation,
+    enableValidation
   }

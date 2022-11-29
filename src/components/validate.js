@@ -27,8 +27,16 @@ function hasInvalidInput (inputList) {
 function toggleButtonState (inputList, buttonElement, validationSettings) {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(validationSettings.inactiveButtonClass);
+    buttonElement.addEventListener('click', function (evt) {
+        const eventTarget = evt.target;
+        eventTarget.setAttribute('disabled', true);
+      });
   } else {
     buttonElement.classList.remove(validationSettings.inactiveButtonClass);
+    buttonElement.addEventListener('click', function (evt) {
+        const eventTarget = evt.target;
+        eventTarget.removeAttribute('disabled', true);
+      });
   }
 }; 
 
@@ -45,11 +53,6 @@ function isValid (formElement, inputElement, validationSettings) {
 function setEventListeners (formElement, validationSettings){
   const inputList = Array.from(formElement.querySelectorAll(validationSettings.inputSelector));
   const buttonElement = formElement.querySelector(validationSettings.submitButtonSelector);
-  
-  buttonElement.addEventListener('click', function (evt) {
-    const eventTarget = evt.target;
-    eventTarget.setAttribute('disabled', true);
-  });
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {

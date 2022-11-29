@@ -46,6 +46,11 @@ function setEventListeners (formElement, validationSettings){
   const inputList = Array.from(formElement.querySelectorAll(validationSettings.inputSelector));
   const buttonElement = formElement.querySelector(validationSettings.submitButtonSelector);
   
+  buttonElement.addEventListener('click', function (evt) {
+    const eventTarget = evt.target;
+    eventTarget.setAttribute('disabled', true);
+  });
+
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       isValid(formElement, inputElement, validationSettings);

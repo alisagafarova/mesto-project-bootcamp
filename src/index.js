@@ -17,8 +17,8 @@ import {
 
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
-const profileUser = document.querySelector('.profile__title');
-const profileAbout = document.querySelector('.profile__subtitle');
+export const profileUser = document.querySelector('.profile__title');
+export const profileAbout = document.querySelector('.profile__subtitle');
 const popUpEdit = document.querySelector('#edit-profile');
 export const popNewLocation = document.querySelector('#new-location');
 const popUpFormEdit = document.querySelector('[name="edit_form"]');
@@ -26,12 +26,11 @@ export const popUpFormAdd = document.querySelector('[name="add_form"]');
 export const popUpImage = document.querySelector('#popup__image');
 export const elements = document.querySelector('.elements__list');
 export const element = document.querySelector('#element-template').content;
- export const popupImageZoom = document.querySelector('.popup__image');
- export const popupAbout = document.querySelector('.popup__about');
- const closeButtons = document.querySelectorAll('.popup__button-close');
-const user = popUpFormEdit.querySelector('[name="firstname"]');
-const about = popUpFormEdit.querySelector('[name="subtitle"]');
-
+export const popupImageZoom = document.querySelector('.popup__image');
+export const popupAbout = document.querySelector('.popup__about');
+const closeButtons = document.querySelectorAll('.popup__button-close');
+export const user = popUpFormEdit.querySelector('[name="firstname"]');
+export const about = popUpFormEdit.querySelector('[name="subtitle"]');
 
 // Вызов функции проверки на валидность форм
 enableValidation({
@@ -112,4 +111,3 @@ closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
-

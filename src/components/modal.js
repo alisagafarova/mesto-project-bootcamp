@@ -1,3 +1,10 @@
+import { 
+    user,
+    profileUser,
+    about,
+    profileAbout
+  } from '../index.js';
+
 //Функция закрытия попапа кликом на оверлей
 function handleEscPopup(evt) {
   if (evt.key === 'Escape') {
@@ -9,6 +16,8 @@ function handleEscPopup(evt) {
 //  Функция открытия попапа
  function openPopup (popUp) {
   popUp.classList.add('popup_is-opened');
+  user.value = profileUser.textContent;
+  about.value = profileAbout.textContent;
   document.addEventListener('keydown', handleEscPopup);
  }
 

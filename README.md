@@ -36,7 +36,7 @@
 
 [Ссылка на макет в Figma](https://www.figma.com/file/PSdQFRHoxXJFs2FH8IXViF/JavaScript-9-sprint?node-id=0%3A1)
 
-### Итоговый проект
+### Итоговый проект на GH-Pages
 
-На данном этапе не требуется обновлять проект на GH-pages
+[Ссылка на проект](https://alisagafarova.github.io/mesto-project-bootcamp/)
 

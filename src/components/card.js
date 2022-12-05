@@ -1,26 +1,18 @@
 import { 
     openPopup,
-    closePopup,
   } from './modal.js';
 
   import { 
     element,
-    elements,
-    popUpFormAdd,
     popUpImage,
     popupAbout,
     popupImageZoom,
-    popNewLocation,
-    nameInput,
-    linkInput
   } from '../index.js';
 
   import {
-    addNewCardApi, 
     deleteCardApi,
     putLikeApi,
     deleteLikeApi,
-    getInitialCards,
   } from './api.js';
 
 
@@ -49,8 +41,10 @@ function createCard(item, user_id) {
     }
     else {
         deleteButton.addEventListener('click', function (evt) {
-            deleteCardApi(cardiD);
-            deleteButton.closest('.element').remove();
+            deleteCardApi(cardiD)
+            .then((item) => {
+              deleteButton.closest('.element').remove();
+            })
         });
     };
     likes.forEach(likeElement => {
@@ -67,26 +61,6 @@ function createCard(item, user_id) {
       });
     return newElement;
   }
-  
-  //Функция добавления новой карточки при нажатии на кнопку
-  function handleAddCard(evt) {
-    evt.preventDefault();
-    const popup = document.querySelector('.popup_is-opened');
-    const button = popup.querySelector('.popup__button');
-    button.setAttribute('value', 'Сохранение...')
-    addNewCardApi (nameInput.value, linkInput.value)
-    .then((item) => {
-      const card = createCard(item, item.owner._id);
-      elements.prepend(card)
-    })
-    .finally(() => {
-        button.setAttribute('value', 'Сохранить');
-        // location.reload()
-      });
-    evt.target.reset();
-    closePopup(popNewLocation);
-  };
-
 
 // Функция отображения колличества лайков на карточках
 function toggleLikeButton(likeNumber ,button, cardiD) {
@@ -113,7 +87,7 @@ function toggleLikeButton(likeNumber ,button, cardiD) {
 }
 
 export {
-  handleAddCard,
+
   createCard,
   openPopup
 }

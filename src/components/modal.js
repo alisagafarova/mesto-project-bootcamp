@@ -1,8 +1,8 @@
 //Функция закрытия попапа нажатием на ESC
 function handleEscPopup(evt) {
-  const openedPopup = document.querySelector('.popup_is-opened');
-  if (openedPopup.classList.contains("popup_is-opened")) {
-    if (evt.key === 'Escape') {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_is-opened');
+    if (openedPopup.classList.contains("popup_is-opened")) {
     closePopup(openedPopup);
    }
   } 
@@ -17,6 +17,7 @@ function handleEscPopup(evt) {
 //Функция закрытия попапа
 function closePopup(popUp) {
   popUp.classList.remove('popup_is-opened');
+  document.removeEventListener('keydown', handleEscPopup);
   }
 
 export {

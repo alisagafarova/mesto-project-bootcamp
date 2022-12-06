@@ -57,6 +57,7 @@ function createCard(item, user_id) {
       const imageElement = imageButton;
       popupImageZoom.setAttribute('src', imageElement.src);
       popupImageZoom.setAttribute('alt', imageElement.alt);
+      popUpImage.classList.add('popup__image_appearance');
       popupAbout.textContent = item.name;
       });
     return newElement;

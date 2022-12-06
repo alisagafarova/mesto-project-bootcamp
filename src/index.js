@@ -99,6 +99,8 @@ function handleAvatarFormSubmit(evt) {
   })
   .finally(() => {
     button.setAttribute('value', 'Сохранить');
+    button.classList.add('popup__button_disabled')
+    button.setAttribute('disabled', true);
   });
 }
 

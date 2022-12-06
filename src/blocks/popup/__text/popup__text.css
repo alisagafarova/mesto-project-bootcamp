@@ -6,7 +6,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    margin: 0px 0 0;
+    margin: 0 0 0;
     position: relative;
 }
 
@@ -15,23 +15,20 @@
 }
 
 .popup__text_type_error {
-    border-bottom: solid 1px red;
+    border-bottom: solid red;
 }
 
 .popup__text_type_error:focus {
-    border-bottom: solid 2px red;
+    border-bottom: solid red;
 }
 
 .popup__text_error{
-    min-height: 25px;
+    min-height: 30px;
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
-    margin: 5px 0 0;
+    margin: 0 0 0;
     color: #FF0000;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
     visibility:hidden;
 }
 

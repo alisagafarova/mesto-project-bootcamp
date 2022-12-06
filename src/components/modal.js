@@ -2,9 +2,7 @@
 function handleEscPopup(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_is-opened');
-    if (openedPopup.classList.contains("popup_is-opened")) {
     closePopup(openedPopup);
-   }
   } 
 }
 

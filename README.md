@@ -1,42 +1,45 @@
-# Проект: Mesto на JavaScript
+# Project: Mesto on JavaScript
 
-Проект о путешествиях. Проект реализован в рамках курса Яндекс Практикум для практического применения полученных знаний. Использована адаптивная верстка, благодаря чему сайт хорошо работает на различных разрешениях экранов. 
-В этом спринте вы начнёте добавлять в проект Mesto функциональность на JavaScript. 
+**Mesto** is a travel-themed project developed as part of the Yandex Practicum course to apply the skills gained. The project uses responsive design, ensuring the site works well across different screen resolutions. In this sprint, we will add JavaScript functionality to the Mesto project.
 
-### Технологии
+### Technologies
 
-* HTML
-* CSS
-* БЭМ
-* JavaScript
-* Grid layout
-* Flexbox
-* Webpack
-* API
+- HTML
+- CSS
+- BEM
+- JavaScript
+- Grid Layout
+- Flexbox
+- Webpack
+- API
 
-### Функциональность
+### Features
 
-#### На данном этапе в проект добавлены следущие функции: 
+At this stage, the following functionality has been added to the project:
 
-* Открытие и закрытие модального окна редактирония профиля
-* Добавление новых карточек на страницу
-* Возможность поставить лайк на карточку
-* Добавлен функционал удаления своей карточки
-* Просмотр фотографий нажатием на картинку и закрытие кликом на крестик
-* Плавное открытие и закрытие попапов
-* Валидация форм
-* Закрытие попапа кликом на оверлей и Esc
-* Произведена сборка проекта Webpack
-* Реализована возможность изменения профиля
-* Карточки загружаются и удаляются с сервера нашей когорты
-* Отображение колличества лайков на карточках
-
+- Opening and closing the profile editing modal
+- Adding new cards to the page
+- Liking cards
+- Deleting your own cards
+- Viewing photos by clicking on the image and closing with a cross
+- Smooth opening and closing of popups
+- Form validation
+- Closing popups by clicking on the overlay or pressing the Esc key
+- Webpack project build
+- Profile update functionality
+- Cards are loaded and deleted from the server
+- Displaying the number of likes on the cards
 
 ### Figma
 
-[Ссылка на макет в Figma](https://www.figma.com/file/PSdQFRHoxXJFs2FH8IXViF/JavaScript-9-sprint?node-id=0%3A1)
+[Link to Figma design](https://www.figma.com/file/PSdQFRHoxXJFs2FH8IXViF/JavaScript-9-sprint?node-id=0%3A1)
 
-### Итоговый проект на GH-Pages
+### Live Project on GitHub Pages
 
-[Ссылка на проект](https://alisagafarova.github.io/mesto-project-bootcamp/)
+[Project link](https://alisagafarova.github.io/mesto-project-bootcamp/)
 
+---
+
+### Short Repository Description:
+
+A travel-themed project using HTML, CSS, JavaScript, and API integration to manage user profiles and card data. Features include profile editing, card creation, liking, deletion, and smooth modal interactions.

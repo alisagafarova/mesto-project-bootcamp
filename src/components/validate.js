@@ -1,30 +1,29 @@
-// Функция, которая добавляет класс с ошибкой
-function showInputError (formElement, inputElement, errorMessage, validationSettings) {
+// Function that adds an error class
+function showInputError(formElement, inputElement, errorMessage, validationSettings) {
   const errorElement = formElement.querySelector(`#${inputElement.name}-error`);
   inputElement.classList.add(validationSettings.inputErrorClass);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(validationSettings.errorClass);
-};
+}
 
-// Функция, которая удаляет класс с ошибкой
-function hideInputError (formElement, inputElement, validationSettings) {
+// Function that removes the error class
+function hideInputError(formElement, inputElement, validationSettings) {
   const errorElement = formElement.querySelector(`#${inputElement.name}-error`);
   inputElement.classList.remove(validationSettings.inputErrorClass);
   errorElement.classList.remove(validationSettings.errorClass);
   errorElement.textContent = '';
-};
+}
 
-// Функция принимает массив полей
-function hasInvalidInput (inputList) {
+// Function that takes an array of input fields
+function hasInvalidInput(inputList) {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
-  })
-  
-}; 
+  });
+}
 
-// Функция принимает массив полей ввода
-// и элемент кнопки, состояние которой нужно менять
-function toggleButtonState (inputList, buttonElement, validationSettings) {
+// Function that takes an array of input fields
+// and a button element whose state needs to be changed
+function toggleButtonState(inputList, buttonElement, validationSettings) {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(validationSettings.inactiveButtonClass);
     buttonElement.setAttribute('disabled', true);
@@ -32,19 +31,19 @@ function toggleButtonState (inputList, buttonElement, validationSettings) {
     buttonElement.classList.remove(validationSettings.inactiveButtonClass);
     buttonElement.removeAttribute('disabled', true);
   }
-}; 
+}
 
-// Функция проверки поля на валидность
-function isValid (formElement, inputElement, validationSettings) {
+// Function to check if an input field is valid
+function isValid(formElement, inputElement, validationSettings) {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage, validationSettings);
   } else {
     hideInputError(formElement, inputElement, validationSettings);
   }
-};
+}
 
-// Функция обработчика события input изменения состояния кнопки
-function setEventListeners (formElement, validationSettings){
+// Event handler function for input changes that updates button state
+function setEventListeners(formElement, validationSettings) {
   const formElements = formElement.querySelectorAll(validationSettings.inputSelector);
   const inputList = Array.from(formElements);
   const buttonElement = formElement.querySelector(validationSettings.submitButtonSelector);
@@ -54,17 +53,15 @@ function setEventListeners (formElement, validationSettings){
       toggleButtonState(inputList, buttonElement, validationSettings);
     });
   });
-  toggleButtonState(inputList, buttonElement,validationSettings);
-}; 
+  toggleButtonState(inputList, buttonElement, validationSettings);
+}
 
-// Функция проверки всех форм на валидность
+// Function to validate all forms
 function enableValidation(validationSettings) {
   const formList = Array.from(document.querySelectorAll(validationSettings.formSelector));
   formList.forEach((formElement) => {
     setEventListeners(formElement, validationSettings);
   });
-};
+}
 
-export {
-    enableValidation
-  }
+export { enableValidation };

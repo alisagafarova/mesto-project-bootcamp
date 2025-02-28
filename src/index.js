@@ -1,27 +1,18 @@
 import './pages/index.css';
 
-import { 
-  enableValidation,
-} from './components/validate.js';
+import { enableValidation } from './components/validate.js';
 
-import { 
-  createCard
-} from './components/card.js';
+import { createCard } from './components/card.js';
 
-import { 
-  openPopup,
-  closePopup, 
-} from './components/modal.js';
-
+import { openPopup, closePopup } from './components/modal.js';
 
 import {
   getInitialCards,
   editProfileData,
   getProfileData,
   editAvatarApi,
-  addNewCardApi
+  addNewCardApi,
 } from './components/api.js';
-
 
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
@@ -48,10 +39,7 @@ export const popupFormAvatar = document.querySelector('[name="avatar_edit_form"]
 const avatarButton = document.querySelector('.profile__edit-avatar');
 export const profileAvatar = document.querySelector('.profile__subtitle');
 const avatarLink = popupFormAvatar.querySelector('[name="avatar"]');
-const headerAvatar  = document.querySelector('.profile__avatar');
-
-
-
+const headerAvatar = document.querySelector('.profile__avatar');
 
 // Вызов функции проверки на валидность форм
 enableValidation({
@@ -60,56 +48,55 @@ enableValidation({
   submitButtonSelector: '.popup__button',
   inactiveButtonClass: 'popup__button_disabled',
   inputErrorClass: 'popup__text_type_error',
-  errorClass: 'popup__text_error_visible'
+  errorClass: 'popup__text_error_visible',
 });
 
 //Функция изменения заголовка страницы
 function handleProfileFormSubmit(evt) {
-    evt.preventDefault();
-    const button = evt.submitter;
-    button.setAttribute('value', 'Сохранение...')
-    editProfileData (user.value, about.value)
+  evt.preventDefault();
+  const button = evt.submitter;
+  button.setAttribute('value', 'Сохранение...');
+  editProfileData(user.value, about.value)
     .then((response) => {
       profileUser.textContent = response.name;
       profileAbout.textContent = response.about;
-      closePopup(popUpEdit)
+      closePopup(popUpEdit);
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
     })
     .finally(() => {
       button.setAttribute('value', 'Сохранить');
     });
-  }
-
+}
 
 //Функция изменения аватара
 function handleAvatarFormSubmit(evt) {
   evt.preventDefault();
   const button = evt.submitter;
-  button.setAttribute('value', 'Сохранение...')
-  editAvatarApi (avatarLink.value)
-  .then((response) => {
-    headerAvatar.setAttribute('src', response.avatar);
-    evt.target.reset();
-    closePopup(popupAvatar);
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-  .finally(() => {
-    button.setAttribute('value', 'Сохранить');
-    button.classList.add('popup__button_disabled')
-    button.setAttribute('disabled', true);
-  });
+  button.setAttribute('value', 'Сохранение...');
+  editAvatarApi(avatarLink.value)
+    .then((response) => {
+      headerAvatar.setAttribute('src', response.avatar);
+      evt.target.reset();
+      closePopup(popupAvatar);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      button.setAttribute('value', 'Сохранить');
+      button.classList.add('popup__button_disabled');
+      button.setAttribute('disabled', true);
+    });
 }
 
-  //Функция добавления новой карточки при нажатии на кнопку
+//Функция добавления новой карточки при нажатии на кнопку
 function handleAddCard(evt) {
-    evt.preventDefault();
-    const button = evt.submitter
-    button.setAttribute('value', 'Сохранение...')
-    addNewCardApi (nameInput.value, linkInput.value)
+  evt.preventDefault();
+  const button = evt.submitter;
+  button.setAttribute('value', 'Сохранение...');
+  addNewCardApi(nameInput.value, linkInput.value)
     .then((item) => {
       const card = createCard(item, item.owner._id);
       elements.prepend(card);
@@ -121,17 +108,17 @@ function handleAddCard(evt) {
     })
     .finally(() => {
       button.setAttribute('value', 'Создать');
-      button.classList.add('popup__button_disabled')
+      button.classList.add('popup__button_disabled');
       button.setAttribute('disabled', true);
-      });
-  };
+    });
+}
 
-// Функция отображения карточек на странице при запросе api 
+// Функция отображения карточек на странице при запросе api
 export function addCardsFromApi(cards, used_id) {
   cards.forEach(function (item) {
     const card = createCard(item, used_id);
     elements.append(card);
-    });
+  });
 }
 
 // Функция изменения информации профиля на странице
@@ -160,8 +147,6 @@ popUpFormEdit.addEventListener('submit', handleProfileFormSubmit);
 popUpFormAdd.addEventListener('submit', handleAddCard);
 popupFormAvatar.addEventListener('submit', handleAvatarFormSubmit);
 
-
-
 //Закрытие попапа нажатием на close button
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
@@ -172,22 +157,17 @@ closeButtons.forEach((button) => {
 const popupList = document.querySelectorAll('.popup');
 popupList.forEach((overlay) => {
   overlay.addEventListener('click', function (evt) {
-  if (evt.target.classList.contains("popup_is-opened")) {
-    closePopup(overlay);
-  }
+    if (evt.target.classList.contains('popup_is-opened')) {
+      closePopup(overlay);
+    }
   });
 });
 
-
-Promise.all([
-  getProfileData(),
-  getInitialCards(),
-  ])
+Promise.all([getProfileData(), getInitialCards()])
   .then((response) => {
     fillFormFromApi(response[0]);
     addCardsFromApi(response[1], response[0]._id);
   })
   .catch((err) => {
     console.log(err);
-  }); 
-
+  });

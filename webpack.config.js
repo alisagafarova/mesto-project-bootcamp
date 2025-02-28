@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
-    publicPath: '/', // Можно указать /, чтобы файлы были доступными на корневом уровне
+    publicPath: '/',
   },
   mode: 'development',
   devServer: {
@@ -51,7 +51,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].css', // Убедитесь, что CSS генерируется и выводится правильно
+      filename: '[name].css',
     }),
   ],
 };
